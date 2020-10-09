@@ -2,7 +2,7 @@ console.log('Booted up.');
 
 //////////////////////////////////////////////////////
 
-import { update as updateSnake, draw as drawSnake, snake_Speed, getSnakeHead, snakeIntersection } from './snake.js';
+import { update as updateSnake, draw as drawSnake, snake_Speed, getSnakeHead, snakeIntersection, snakeBody } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
 import { outsideGrid } from './grid.js'
 
@@ -12,7 +12,7 @@ const gameBoard = document.getElementById('game-board')
 
 function main(currentTime) {
     if (gameOver) { 
-        if (confirm('You Lost. Press OK to restart.')) {
+        if (confirm(`You Lost. Total Length: ${snakeBody.length}. Press OK to restart.`)) {
             window.location = '/'
         }
         return
